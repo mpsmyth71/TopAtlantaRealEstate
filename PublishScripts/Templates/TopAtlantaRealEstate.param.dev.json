@@ -1,0 +1,29 @@
+{
+  "siteName": {
+    "value": "TopAtlantaRealEstate"
+  },
+  "hostingPlanName": {
+    "value": "TopAtlantaSVCPlan"
+  },
+  "siteLocation": {
+    "value": "East US"
+  },
+  "sku": {
+    "value": "Free"
+  },
+  "workerSize": {
+    "value": "0"
+  },
+  "siteMode": {
+    "value": "Limited"
+  },
+  "computeMode": {
+    "value": "0"
+  },
+  "subscriptionId": {
+    "value": "23a9b864-b6f3-4c8a-957c-6442e3744e19"
+  },
+  "resourceGroup": {
+    "value": "Default-Storage-EastUS"
+  }
+}

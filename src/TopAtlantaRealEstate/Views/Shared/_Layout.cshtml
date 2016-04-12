@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Top Atlanta Real Estate - @ViewBag.Title</title>
+
+        <environment names="Development">
+            <link rel="stylesheet" href="~/lib/bootswatch/cerulean/bootstrap.css" />
+            <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+            <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css" />
+            <link rel="stylesheet" href="~/css/site.css" />
+        </environment>
+        <environment names="Staging,Production">
+            <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css"
+                  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+                  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+            <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+            <link rel="stylesheet" href="~/lib/bootswatch/cerulean/bootstrap.min.css" asp-append-version="true" />
+            <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" asp-append-version="true" />
+        </environment>
+        @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
+    </head>
+    <body>
+        <div id="sidebar">
+            <ul class="nav">
+                <li class="active"><a asp-controller="Dashboard" asp-action="Index">Dashboards</a></li>
+                <li><a asp-controller="Email" asp-action="Index">Email</a></li>
+                <li><a asp-controller="Customer" asp-action="Index">Customers</a></li>
+                <li><a asp-controller="Market" asp-action="Index">Market Listings</a></li>
+                <li><a asp-controller="MLS" asp-action="Index">Search MLS</a></li>
+                <li><a asp-controller="Marketing" asp-action="Index">Create Marketing</a></li>
+                <li><a asp-controller="Help" asp-action="Index">Help</a></li>
+            </ul>
+        </div>
+
+        <div id="wrapper">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <button id="sidebarToggle" class="btn btn-primary">
+                                <i class="fa fa-angle-left"></i>
+                            </button>
+                        </li>
+                    </ul>
+                    <a asp-controller="App" asp-action="Index" class="navbar-brand">Top Atlanta Real Estate</a>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" class="btn btn-lg btn-info">
+                                <i class="fa fa-clock-o"></i> Alerts
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="btn btn-lg btn-info">
+                                <i class="fa fa-envelope-o"></i> Email
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div id="main" class="container-fluid">
+                <div>
+                    @RenderBody()
+                </div>
+
+            </div>
+            <div id="footer" class="container-fluid">
+                <div class="navbar navbar-inverse navbar-fixed-bottom">
+                    <h4 class="text-center text-info">&copy; 2015 The World Ltd.</h4>
+                </div>
+            </div>
+        </div> 
+
+        <environment names="Development">
+            <script src="~/lib/jquery/dist/jquery.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+        </environment>
+        <environment names="Staging,Production">
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery">
+            </script>
+            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/bootstrap.min.js"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+            </script>
+            <script src="~/js/site.min.js" asp-append-version="true"></script>
+        </environment>
+
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

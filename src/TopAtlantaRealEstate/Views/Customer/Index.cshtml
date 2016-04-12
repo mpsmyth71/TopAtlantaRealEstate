@@ -1,0 +1,44 @@
+﻿@model TopAtlantaRealEstate.ViewModels.CustomerSearchViewModel
+
+@{
+    ViewBag.Title = "Customers";
+}
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+<div class="row">
+    <div class="col-md-9">
+        <h1>Left Side</h1>
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="Name">Name</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-muted"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone">Phone</label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-muted"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email">Email</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-muted"></span>
+            </div>
+            <div>
+                <input type="submit" value="Search" class="btn btn-danger"/>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-3">
+        <h1>Customers</h1>
+        <ul>
+            @foreach (var customer in Model.Customers)
+            {
+                <li>@customer.FirstName: @customer.Emails.First().EmailAddress</li>
+
+            }
+        </ul>
+    </div>
+</div>
